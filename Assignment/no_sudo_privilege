@@ -1,0 +1,28 @@
+step-1: Create new user
+
+command: sudo adduser newuser
+
+#Replace newuser with the desired username and set a password.
+
+step-2: Verify user's group
+
+command: groups newuser
+
+#Make sure that sudo is not listed.
+
+step-3: Remove the user from the groups
+
+command: sudo deluser username sudo
+
+step-4: Check sudo privileges in the configuration
+
+command: sudo visudo
+
+#In this file, we have to check for "newuser ALL=(ALL:ALL) ALL". If found either delete tis line or comment it out by adding '#' at the beginning.
+ 
+step-5: Verify the restriction
+
+command: su - username
+	 sudo ls
+
+Expected o/p: newuser is not in the sudoers file. This incident will be reported.

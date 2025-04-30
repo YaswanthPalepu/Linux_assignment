@@ -1,0 +1,33 @@
+step-1: Understand Default File Creation
+#Normally when a user creates a file the  default permissions is 666 (read and write for owner, group, others).Then umask value is subtracted from this default. 
+
+step-2:  Find Current umask
+
+command: umask
+
+#output: 022
+
+step-3: Set umask So That New Files Have 0 Permissions
+
+#We need to subtract everything from 666 — meaning no permissions.Required umask = 666 (base) → subtract 666 = 000.
+
+command: umask 666
+
+#Now,any filecreated will have 000 permissions.
+
+step-4: Make It Permanent
+#To apply umask 666 automatically on every login:
+#Edit the shell configuration file (depends on shell: usually .bashrc, .bash_profile, or .profile).
+command: nano ~/.bashrc      (or)      nano ~/.profile
+	#we have to add a line at the end of the file and save it.
+command: umask 666
+
+step-5: Testing
+
+#1. Create a file:
+ 	command: touch testfile
+#2.check permission:
+	command: ls -l testfile
+#we get output like this:
+
+#output: ---------- 1 username groupname 0 Apr 28 12:00 testfile

@@ -1,0 +1,18 @@
+step-1: Create the script for 'describe' command
+
+command: sudo nano /usr/local/bin/describe
+
+script: #!/bin/bash
+	ls -l
+
+#After writing script that when describe is executed,it lists all files and folders. Make sure to save the file.
+
+step-2: Make the script executable
+
+command: sudo chmod +x /usr/local/bin/bash/describe
+
+step-3: Verify that it works
+
+command:describe
+
+#It should list all files and folders in the directory.

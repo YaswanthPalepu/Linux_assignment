@@ -1,0 +1,37 @@
+step-1: install mailutils
+#first,install 'mailutils' which provides the mail command.
+command:
+	sudo apt update
+	sudo apt install mailutils
+
+step-2: check for the local users
+
+command: cut -d ":" -f 1 /etc/passwd
+	(or)
+command: sudo adduser spiderman
+
+#Here the first command is gives the output of list of all users and second command used for create a new user (if no user is available).
+
+step-3: send an email using 'mail' command
+
+command: echo "this is the body of the command" | mail -s "test mail" spiderman
+
+#Here -s= set the subject; spiderman= local recipient
+
+command: mail -s "test mail" spiderman < /home/sigmoid/message.txt
+
+#here we given the path of the message file.
+
+step-4: read the email as the recipient
+command: sudo su spiderman
+#here we login into recipient user.
+
+command: mail
+#here we see message number, sender info, subject, and time.
+#usage: press "enter" = read mail,
+	#"q" = quit,
+	#"d" = delete message
+
+step-5: check mail spool location(optional)
+
+command: nano /var/mail/spiderman

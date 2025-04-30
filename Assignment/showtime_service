@@ -1,0 +1,47 @@
+step-1: Created script showtime.sh
+command: nano ~/showtime.sh
+#content:
+
+##!/bin/bash
+#while true
+#do
+#    date '+%Y-%m-%d %H:%M:%S' >> ~/current_time.log
+#    sleep 60
+#done
+
+step-2: Made script executable
+
+command: chmod +x ~/showtime.sh
+
+step-3: Created service file
+
+command: sudo nano /etc/systemd/system/showtime.service
+
+#contents:
+
+[Unit]
+Description=Show Current Time Every Minute
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/sigmoid/showtime.sh
+Restart=always
+RestartSec=5
+User=sigmoid
+WorkingDirectory=/home/sigmoid
+[Install]
+WantedBy=multi-user.target
+
+step-4: Reloaded systemd
+
+command: sudo systemctl daemon-reload
+
+step-5: Controlled the service
+
+#1.start:
+	command: sudo service showtime start
+#2.status:
+	command: sudo service showtime status
+#3.stop:
+	command: sudo service showtime stop

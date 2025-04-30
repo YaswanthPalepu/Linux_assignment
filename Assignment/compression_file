@@ -1,0 +1,19 @@
+Step 1: Compressing a file
+
+command: gzip -c /home/sigmoid/research > /home/sigmoid/temp/research.gz
+# This command will compress the research file and stores it into temp directory
+
+Step-2: Locate the file
+
+command: sudo find / -type f -name "research.*" 
+
+#Searches the entire file system (/) for files named research with any extension.
+Step 3: Uncompressing the file
+
+command: gunzip -c /home/sigmoid/temp/research.gz > /home/sigmoid/research
+# This command will extract the file and stores in sigmoid's home directory
+
+step-4 : Verify the extraction
+
+command: ls -l /output/directory
+#check the target location to confirm the file has been extracted properly.
