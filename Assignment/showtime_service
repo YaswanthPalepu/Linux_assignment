@@ -5,7 +5,7 @@ command: nano ~/showtime.sh
 ##!/bin/bash
 #while true
 #do
-#    date '+%Y-%m-%d %H:%M:%S' >> ~/current_time.log
+#    date '+%Y-%m-%d %H:%M:%S' > ~/current_time.log
 #    sleep 60
 #done
 
